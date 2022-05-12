@@ -19,7 +19,7 @@ from employees;
 
 
 --예제)
---사원의 이름(fisrt_name)과 전화번호 입사일 연봉을 출력하세요
+--사원의 이름(first_name)과 전화번호 입사일 연봉을 출력하세요
 select first_name, phone_number, hire_date, salary
 from employees;
 
