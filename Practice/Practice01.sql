@@ -60,7 +60,8 @@ order by max_salary desc;
         salary 월급,
         NVL(commission_pct,0) 커미션퍼센트
  from employees
- where salary between 14000 and 10000
+ where salary < 14000
+ and salary >= 10000
  order by salary desc;
  
 /*
@@ -97,7 +98,7 @@ or first_name like '%s';
 */
 select *
 from departments
-order by length(department_name)desc;
+order by length(department_name) desc;
 
 /*
 문제 9.
