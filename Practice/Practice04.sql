@@ -10,7 +10,6 @@ from employees
 where salary < (select avg(salary)
 				from employees);
 
-
 /* 문제 2.
 	- 평균급여 이상, 최대급여 이하의 월급을 받는 사원의 :
 		* 직원번호(employee_id), 
@@ -25,7 +24,9 @@ select  e.employee_id 직원번호,
         e.salary 급여,
         s.asal 평균급여,
         s.msal 최대급여
-from employees e, (select round(avg(salary),0) asal, max(salary) msal from employees) s
+from employees e, (select round(avg(salary),0) asal, 
+							max(salary) msal 
+					from employees) s
 where e.salary >= s.asal
 and e.salary <= s.msal
 order by e.salary asc;
@@ -59,7 +60,7 @@ from employees e, departments d, locations l
 where e.department_id = d.department_id
 and d.location_id = l.location_id
 and (e.first_name, e.last_name) in (select first_name,
-                                            last_name
+                                    		last_name
                                     from employees
                                     where first_name = 'Steven'
                                     and last_name = 'King');
