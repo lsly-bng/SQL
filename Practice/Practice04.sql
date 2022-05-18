@@ -147,15 +147,15 @@ and e.salary > s.salary
 order by 급여 desc;
 
 /* 문제 8.
-		- 직원 입사일이 11번째에서 15번째의 직원의 
-			* 사번, 
-			* 이름, 
-			* 급여, 
-			* 입사일을 
-		- 입사일 순서로 출력하세요.
-		- 결과값: 
-			* RN, EMPLOYEE_ID, FIRST_NAME, SALARY HIRE_DATE
-			* STEVEN, RENSKE, JENNIFER, TRENNA, NANDITA
+	- 직원 입사일이 11번째에서 15번째의 직원의 
+		* 사번, 
+		* 이름, 
+		* 급여, 
+		* 입사일을 
+	- 입사일 순서로 출력하세요.
+	- 결과값: 
+		* RN, EMPLOYEE_ID, FIRST_NAME, SALARY HIRE_DATE
+		* STEVEN, RENSKE, JENNIFER, TRENNA, NANDITA
 */
 select rownum,
 		employee_id 사번,
