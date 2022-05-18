@@ -17,9 +17,7 @@ from departments;
 select  employee_id, first_name, last_name
 from employees;
 
-
---예제)
---사원의 이름(first_name)과 전화번호 입사일 연봉을 출력하세요
+--예제)	사원의 이름(first_name)과 전화번호 입사일 연봉을 출력하세요
 select first_name, phone_number, hire_date, salary
 from employees;
 
@@ -117,7 +115,6 @@ select  salary
 from employees
 where first_name = 'Lex' ;
 
-
 --조건이 2개이상 일때 한꺼번에 조회하기
 --연봉이 14000 이상 17000이하인 사원의 이름과 연봉을 구하시오
 select  first_name,
@@ -179,7 +176,6 @@ where salary = 2100
 or salary = 3100
 or salary = 4100
 or salary = 5100;
-
 
 --Like 연산자로 비슷한것들 모두 찾기
 select first_name, last_name, salary
