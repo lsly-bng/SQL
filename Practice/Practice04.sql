@@ -17,7 +17,7 @@ where salary < (select avg(salary)
 		* 급여(salary), 
 		* 평균급여, 
 		* 최대급여를 
-급여의 오름차순으로 정렬하여 출력하세요. (51건)
+	- 급여의 오름차순으로 정렬하여 출력하세요. (51건)
 */
 select  e.employee_id 직원번호,
         e.first_name 이름,
