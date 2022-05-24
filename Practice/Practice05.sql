@@ -2,9 +2,9 @@
 
 /*
 문제 1.
-	- 담당 매니저가 배정되어있으나							// manager_id is not null
-	- 커미션비율이 없고,									// commission_pct is null 				
-	- 월급이 3000초과인 직원의							// employees with salary > 3000			
+	- 담당 매니저가 배정되어있으나							
+	- 커미션비율이 없고,											
+	- 월급이 3000초과인 직원의			
 			* 이름 (first_name),
 			* 매니저아이디 (manager_id), 
 			* 커미션 비율 (commission_pct), 
@@ -24,18 +24,18 @@ order by salary asc;
 
 /*
 문제 2.
-	- 각 부서별로 										// group by department
-	- 최고의 급여를 받는 사원의 							// employees with max(salary)
+	- 각 부서별로 						
+	- 최고의 급여를 받는 사원의 							
 		* 직원번호(employee_id), 
 		* 이름(first_name), 
 		* 급여(salary), 
 		* 입사일(hire_date), 							
 		* 전화번호(phone_number), 
-		* 부서번호(department_id) 를 조회하세요			// from employees
-	- 조건절비교 방법으로 작성하세요							// where (department_id,salary) in (department_id, max(salary))
-	- 급여의 내림차순으로 정렬하세요							// order by salary desc
-	- 입사일은 2001-01-13 토요일 형식으로 출력합니다.			// to_char(hire_date, 'yyyy-mm-dd day')
-	- 전화번호는 515-123-4567 형식으로 출력합니다. (11건)		// replace(phone_number,'','-')
+		* 부서번호(department_id) 를 조회하세요			
+	- 조건절비교 방법으로 작성하세요							
+	- 급여의 내림차순으로 정렬하세요							
+	- 입사일은 2001-01-13 토요일 형식으로 출력합니다.			
+	- 전화번호는 515-123-4567 형식으로 출력합니다. (11건)		
 */
 
 --각 부서별 최고의 급여를 받는 사원 조회
@@ -74,14 +74,14 @@ order by salary desc;
 
 /*
 문제 3.
-	- 매니저별 / 담당직원들의 								// select avg/min/max salary from employees and group by manager_id (m)
+	- 매니저별 / 담당직원들의 								
 		* 평균급여 (avg(salary))
 		* 최소급여 (min(salary))
 		* 최대급여 (max(salary))를 알아보려고 한다. 
-	- 통계대상(직원)은 2005년 이후(2005년 1월 1일 ~ 현재)의 입사자 입니다.		// where hire_date >= '01-jan-05' (m)
-	- 매니저별 평균급여가 5000이상만 출력합니다.				// where m.avg(salary) >= 5000
-	- 매니저별 평균급여의 내림차순으로 출력합니다.				// order by m.avg(salary) desc
-	- 매니저별 평균급여는 소수점 첫째자리에서 반올림 합니다.		// (round(avg(salary),1)
+	- 통계대상(직원)은 2005년 이후(2005년 1월 1일 ~ 현재)의 입사자 입니다.		
+	- 매니저별 평균급여가 5000이상만 출력합니다.
+	- 매니저별 평균급여의 내림차순으로 출력합니다.			
+	- 매니저별 평균급여는 소수점 첫째자리에서 반올림 합니다.		
 	- 출력내용은 
 		* 매니저 아이디 (manager_id), 
 		* 매니저 이름(first_name), 
@@ -127,11 +127,11 @@ order by m.avs desc;
 /*
 문제 4.
 	- 각 사원(employee)에 대해서 						
-		* 사번(employee_id), 							// (e)select '' from employees
-		* 이름(first_name),							// (e)select '' from employees		// join (e) with (d) & (m)
-		* 부서명(department_name), 					// (d)select '' from departments 	// where e.department_id = d.department_id
-		* 매니저(manager)의 이름(first_name)을 조회하세요.	// (m)select '' from employees 		// where m.employee_id = e.manager_id
-	- 부서가 없는 직원(Kimberely)도 표시합니다. (106명)		// show null(+) from departments
+		* 사번(employee_id), 							
+		* 이름(first_name),							
+		* 부서명(department_name), 					
+		* 매니저(manager)의 이름(first_name)을 조회하세요.	
+	- 부서가 없는 직원(Kimberely)도 표시합니다. (106명)		
 */
 
 --문제 4번 오라클 (+) 풀이
@@ -158,14 +158,14 @@ order by e.employee_id asc;
 
 /*
 문제 5.
-	- 2005년 이후 입사한 직원중에 							// select from employees where hire_date > '31-DEC-05'
-	- 입사일이 11번째에서 20번째의 직원의					// where '' (rownum (select '' / from '' / order by hire_date)) between 11 and 20
-		* 사번(employee_id),							// (e) 
-		* 이름(first_name), 							// (e) select '' from employees			// join(e) and (d)
-		* 부서명(department_name), 					// (d) select '' from departments		// where e.department_id = d.department_id
-		* 급여(salary), 								// (e) 
-		* 입사일(hire_date)을 							// (e) 
-	- 입사일 순서로 출력하세요								// order by hire_date
+	- 2005년 이후 입사한 직원중에 							
+	- 입사일이 11번째에서 20번째의 직원의					
+		* 사번(employee_id),							 
+		* 이름(first_name), 							
+		* 부서명(department_name), 					
+		* 급여(salary), 								 
+		* 입사일(hire_date)을 						 
+	- 입사일 순서로 출력하세요								
 */
 
 --2005년 이후 입사한 직원 중에 사번,이름,부서명,급여,입사일을 입사일 순서로 정렬
@@ -223,10 +223,10 @@ where ort.rn between 11 and 20;
 
 /*
 문제 6.
-	- 가장 늦게 입사한 직원의 								// select '' where (hire_date = max(hire_date)) from employees
-		* 이름(first_name last_name)과 				// (e) 
-		* 연봉(salary)과 								// (e) select '' from employees			// join(e) and (d)
-		* 근무하는 부서 이름(department_name)은?			// (d) select '' from departments		// where e.department_id = d.department_id
+	- 가장 늦게 입사한 직원의 								
+		* 이름(first_name last_name)과 				 
+		* 연봉(salary)과 								
+		* 근무하는 부서 이름(department_name)은?			
 */
 
 --가장 늦게 입사한 직원의 이름과 연봉 조회 (21-APR-08, 2명)
@@ -251,12 +251,12 @@ and hire_date = (select max(hire_date)
                  
 /*
 문제 7.
-	- 평균연봉(salary)이 가장 높은 / 부서 직원들의 			// select '' from (select max(avg(salary)) from employees group by department_id)
-		* 직원번호(employee_id), 						//(e)
-		* 이름(firt_name), 							//(e)
-		* 성(last_name)과 							//(e) select '' from employees			// join (e) and (j)
-		* 업무(job_title), 							//(j) select '' from jobs
-		* 연봉(salary)을 조회하시오.						//(e)
+	- 평균연봉(salary)이 가장 높은 / 부서 직원들의 			
+		* 직원번호(employee_id), 						
+		* 이름(firt_name), 							
+		* 성(last_name)과 							
+		* 업무(job_title), 							
+		* 연봉(salary)을 조회하시오.						
 */
 
 --부서별 평균연봉(salary) 조회 (가장 높음 평균연봉 부서 = 90,19333)
